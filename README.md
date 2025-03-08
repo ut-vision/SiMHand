@@ -17,6 +17,18 @@ conda activate simhand
 
 ## Run Experiments
 ### Prepare pre-training data
-We are looking for a suitable way to publish the pre-training data set. Thank you!
+We are looking for a suitable way to publish the pre-training data set. Thank you! (Cooming soon)
 
-## 
+## Citation
+If you find our paper/code useful, please consider citing our work:
+
+```
+@inproceedings{
+    lin2025simhand,
+    title={{SiMHand}: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training},
+    author={Nie Lin and Takehiko Ohkawa and Yifei Huang and Mingfang Zhang and Minjie Cai and Ming Li and Ryosuke Furuta and Yoichi Sato},
+    booktitle={The Thirteenth International Conference on Learning Representations (ICLR)},
+    year={2025},
+    url={https://openreview.net/forum?id=96jZFqM5E0}
+}
+```
