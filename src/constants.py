@@ -18,7 +18,6 @@ SSL_CONFIG = os.path.join(CONFIG_PATH, "semi_supervised_config.json")
 
 PECLR_CONFIG = os.path.join(CONFIG_PATH, "peclr_config.json")
 HANDCLR_CONFIG = os.path.join(CONFIG_PATH, "handclr_config.json")
-HANDCLR_MV_CONFIG = os.path.join(CONFIG_PATH, "handclr_mv_config.json")
 
 DOWNSTREAM_CONFIG = os.path.join(CONFIG_PATH, "downstream_config.json")
 
