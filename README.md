@@ -14,3 +14,9 @@ conda env create -f environment.yml
 conda activate simhand
 ## python -c "import torch; print(torch.__version__)" # Make sure it work!
 ```
+
+## Run Experiments
+### Prepare pre-training data
+We are looking for a suitable way to publish the pre-training data set. Thank you!
+
+## 
