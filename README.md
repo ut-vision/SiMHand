@@ -1,4 +1,4 @@
-# LaBraM
+# SiMHand
 This is the official implementation of our ICLR 2025 paper "[SiMHand: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training](https://openreview.net/forum?id=96jZFqM5E0)". Hop to share our work in Singapore 🇸🇬 ～!!
 
 ![labram](simhand.png)
