@@ -56,7 +56,7 @@ python src/experiments/main.py \
 --pos_neg pos_neg \     # add weight in pos or neg of Contrastive loss
 ```
 
-We also prepare the [PeCLR](https://arxiv.org/pdf/2106.05953) and [SimCLR](https://arxiv.org/pdf/2002.05709) pre-training with adaptive weighting strategy:
+We also prepare the [PeCLR](https://arxiv.org/pdf/2106.05953) and [SimCLR](https://arxiv.org/pdf/2002.05709) pre-training with adaptive weighting strategy: \
 For PeCLR with our adaptive weighting strategy
 ```bash
 python src/experiments/main.py \
