@@ -31,7 +31,7 @@ export SAVED_MODELS_BASE_PATH="$BASE_PATH/data/models/simhand"
 export SAVED_META_INFO_PATH="$BASE_PATH/data/models" 
 ```
 ### SiMHand Pre-training
-For pre-training of SiMHand , please run through the code below. We did not search for enhancement strategies for SiMHand, and we inherited the description of PeCLR and SimCLR from the original PeCLR paper.
+For pre-training of SiMHand , please run through the code below. We did not search for random augmentation strategies for SiMHand, and we inherited the description of PeCLR and SimCLR from the original PeCLR paper.
 ```bash
 python src/experiments/main.py \
 --experiment_type handclr_w \
@@ -56,9 +56,58 @@ python src/experiments/main.py \
 --pos_neg pos_neg \     # add weight in pos or neg of Contrastive loss
 ```
 
+We also prepare the [PeCLR](https://arxiv.org/pdf/2106.05953) and [SimCLR](https://arxiv.org/pdf/2002.05709) pre-training with adaptive weighting strategy:
+For PeCLR with our adaptive weighting strategy
+```bash
+python src/experiments/main.py \
+--experiment_type peclr_w \
+--gpus 0,1,2,3,4,5,6,7 \ # 8 card pre-training
+--color_jitter \    # Data Augmentation I
+--random_crop \     # Data Augmentation II
+--rotate \          # Data Augmentation III
+--crop \            # Data Augmentation IV
+-resnet_size 50 \   # ResNet size 50 or 152
+--resize \
+-sources ego4d \    # Pre-training Data Source: ego4d or 100doh
+--datasets_scale 1m \   # Pre-training Data Size
+-epochs 100 \
+-batch_size 8192 \
+-accumulate_grad_batches 1 \
+-save_top_k 100 \
+-save_period 1 \
+-num_workers 24 \
+--weight_type linear \  #  parameter-free adaptive weighting strategy
+--joints_type augmented \
+--diff_type mpjpe \     # distance caculation
+--pos_neg pos_neg \     # add weight in pos or neg of Contrastive loss
+```
+
+For SimCLR with our adaptive weighting strategy
+```bash
+python src/experiments/main_pretrain.py \
+--experiment_type simclr_w \
+--gpus 0,1,2,3,4,5,6,7 \ # 8 card pre-training
+--color_jitter \    # Data Augmentation I
+--crop \            # Data Augmentation II
+-resnet_size 50 \
+-sources ego4d \    # Pre-training Data Source: ego4d or 100doh
+--datasets_scale 1m \   # Pre-training Data Si
+--resize \
+-epochs 100 \
+-batch_size 1024 \
+-accumulate_grad_batches 1 \
+-save_top_k 100 \
+-save_period 1 \
+-num_workers 4 \
+--weight_type linear \  #  parameter-free adaptive weighting strategy
+--joints_type augmented \
+--diff_type mpjpe \     # distance caculation
+--pos_neg pos_neg     # add weight in pos or neg of Contrastive loss
+```
 
 ## Citation
-If you find our paper/code useful, please consider citing our work:
+If you find our paper/code useful, please consider citing our paper:
+
 
 ```
 @inproceedings{
