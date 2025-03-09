@@ -8,7 +8,7 @@ from src.models.utils import (
     log_simclr_images,
     log_pairwise_images,
     log_peclr_images,
-    log_handclr_images,
+    log_simhand_images,
 )
 from src.visualization.visualize import unormalize_images
 
@@ -22,7 +22,7 @@ class UploadCometLogs(Callback):
         self.console_logger = console_logger
         self.valid_logger = False
         self.experiment_type = experiment_type
-        if experiment_type in ["simclr", "pairwise", "hybrid1", "peclr", "handclr-base", "handclr", "handclr_w", "simclr_w", "peclr_w"]:
+        if experiment_type in ["simclr", "pairwise", "hybrid1", "peclr", "simhand-base", "simhand", "simhand_w", "simclr_w", "peclr_w"]:
             self.supervised = False
         else:
             self.supervised = True
@@ -97,8 +97,8 @@ class UploadCometLogs(Callback):
                             comet_logger=pl_module.logger.experiment,
                         )
 
-                    elif "handclr" in self.experiment_type:
-                        log_handclr_images(
+                    elif "simhand" in self.experiment_type:
+                        log_simhand_images(
                             img1=pl_module.plot_params["image1"],
                             img2=pl_module.plot_params["image2"],
                             params=pl_module.plot_params["params"],
@@ -210,8 +210,8 @@ class UploadCometLogs(Callback):
                             context_val=True,
                             comet_logger=pl_module.logger.experiment,
                         )
-                    elif "handclr" in self.experiment_type:
-                        log_handclr_images(
+                    elif "simhand" in self.experiment_type:
+                        log_simhand_images(
                             img1=pl_module.plot_params["image1"],
                             img2=pl_module.plot_params["image2"],
                             params=pl_module.plot_params["params"],

@@ -17,7 +17,7 @@ SIMCLR_CONFIG = os.path.join(CONFIG_PATH, "simclr_config.json")
 SSL_CONFIG = os.path.join(CONFIG_PATH, "semi_supervised_config.json")
 
 PECLR_CONFIG = os.path.join(CONFIG_PATH, "peclr_config.json")
-HANDCLR_CONFIG = os.path.join(CONFIG_PATH, "handclr_config.json")
+SIMHAND_CONFIG = os.path.join(CONFIG_PATH, "simhand_config.json")
 
 DOWNSTREAM_CONFIG = os.path.join(CONFIG_PATH, "downstream_config.json")
 

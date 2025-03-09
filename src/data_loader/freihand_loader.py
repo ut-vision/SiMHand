@@ -199,7 +199,7 @@ class F_DB(Dataset):
         joint_cam = joints3D
         joint_img = cam2pixel(joint_cam, focal, princpt)[:, :2]
         
-        save_dir = '/large/nielin/code/handclr/visualization/fh'
+        save_dir = '/large/nielin/code/simhand/visualization/fh'
         ret_2d = draw_2d_skeleton(img, joint_img)
         img_id = img_name.split('/')[-1]
         img_id = img_id.split('.')[0]

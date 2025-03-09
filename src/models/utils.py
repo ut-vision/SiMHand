@@ -12,7 +12,7 @@ from src.constants import SAVED_MODELS_BASE_PATH
 from src.data_loader.utils import convert_2_5D_to_3D
 from src.models.resnet_model import ResNetModel
 from src.visualization.visualize import (plot_peclr_images,
-                                         plot_handclr_images,
+                                         plot_simhand_images,
                                          plot_pairwise_images,
                                          plot_simclr_images,
                                          plot_truth_vs_prediction)
@@ -583,7 +583,7 @@ def log_peclr_images(
             )
 
 
-def log_handclr_images(
+def log_simhand_images(
     img1: Tensor,
     img2: Tensor,
     params: Dict[str, Tensor],
@@ -593,12 +593,12 @@ def log_handclr_images(
     params = {k: v.data[0].cpu() for k, v in params.items()}
     if context_val:
         with comet_logger.validate():
-            plot_handclr_images(
+            plot_simhand_images(
                 img1.data[0].cpu(), img2.data[0].cpu(), params, comet_logger
             )
     else:
         with comet_logger.train():
-            plot_handclr_images(
+            plot_simhand_images(
                 img1.data[0].cpu(), img2.data[0].cpu(), params, comet_logger
             )
 

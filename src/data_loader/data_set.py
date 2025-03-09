@@ -118,38 +118,38 @@ class Data_Set(Dataset):
         elif self.experiment_type == "peclr_w":
             sample = self.prepare_peclr_w_sample(sample, self.augmenter)
 
-        # HandCLR-base: No augmentations, no transfer, same like SimCLR
-        elif self.experiment_type == "handclr-base":
+        # SiMHand-base: No augmentations, no transfer, same like SimCLR
+        elif self.experiment_type == "simhand-base":
             # Get the anchor and postive sample:
             anchor_sample = sample
             positive_sample_idx = int(sample["positive_sample_idx"])
             positive_sample = self.db[positive_sample_idx]
-            sample = self.prepare_handclr_base_sample(anchor_sample, positive_sample, self.augmenter)
+            sample = self.prepare_simhand_base_sample(anchor_sample, positive_sample, self.augmenter)
         
-        # HandCLR: With augmentations, with transfer, same like PeCLR
-        elif self.experiment_type == "handclr":
+        # SiMHand: With augmentations, with transfer, same like PeCLR
+        elif self.experiment_type == "simhand":
             # Get the anchor and postive sample:
             anchor_sample = sample
             positive_sample_idx = int(sample["positive_sample_idx"])
             positive_sample = self.db[positive_sample_idx]
-            sample = self.prepare_handclr_v0_sample(anchor_sample, positive_sample, self.augmenter)
+            sample = self.prepare_simhand_v0_sample(anchor_sample, positive_sample, self.augmenter)
         
-        # HandCLR with weighting
-        elif self.experiment_type == "handclr_w":
+        # SiMHand with weighting
+        elif self.experiment_type == "simhand_w":
             # Get the anchor and postive sample:
             anchor_sample = sample
             positive_sample_idx = int(sample["positive_sample_idx"])
             positive_sample = self.db[positive_sample_idx]
-            sample = self.prepare_handclr_w_sample(anchor_sample, positive_sample, self.augmenter)
+            sample = self.prepare_simhand_w_sample(anchor_sample, positive_sample, self.augmenter)
 
-        # Handclr visualization
-        # HandCLR-VIS: for visualization
-        elif self.experiment_type == "handclr_vis":
+        # SiMHand visualization
+        # SiMHand-VIS: for visualization
+        elif self.experiment_type == "simhand_vis":
             # Get the anchor and postive sample:
             anchor_sample = sample
             positive_sample_idx = int(sample["positive_sample_idx"])
             positive_sample = self.db[positive_sample_idx]
-            sample = self.prepare_handclr_vis_sample(anchor_sample, positive_sample, self.augmenter, self.augmenter_default)
+            sample = self.prepare_simhand_vis_sample(anchor_sample, positive_sample, self.augmenter, self.augmenter_default)
         
         else:
             sample = self.prepare_supervised_sample(sample, self.augmenter)
@@ -571,7 +571,7 @@ class Data_Set(Dataset):
             **{f"{k}_2": v for k, v in param2.items() if v is not None},
         }
 
-    def prepare_handclr_base_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
+    def prepare_simhand_base_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
         anchor_joints25D, _ = convert_to_2_5D(anchor_sample["K"], anchor_sample["joints3D"])
         positive_joints25D, _ = convert_to_2_5D(positive_sample["K"], positive_sample["joints3D"])
         
@@ -607,7 +607,7 @@ class Data_Set(Dataset):
             **{f"{k}_2": v for k, v in param2.items() if v is not None},
         }
 
-    def prepare_handclr_v0_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
+    def prepare_simhand_v0_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
         anchor_joints25D, _ = convert_to_2_5D(anchor_sample["K"], anchor_sample["joints3D"])
         positive_joints25D, _ = convert_to_2_5D(positive_sample["K"], positive_sample["joints3D"])
         
@@ -643,7 +643,7 @@ class Data_Set(Dataset):
             **{f"{k}_2": v for k, v in param2.items() if v is not None},
         }
         
-    def prepare_handclr_w_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
+    def prepare_simhand_w_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter) -> dict:
         # Note: after convert_to_2_5D, anchor_sample["joints3D"] still == anchor_joints25D
         anchor_joints25D, _ = convert_to_2_5D(anchor_sample["K"], anchor_sample["joints3D"])
         positive_joints25D, _ = convert_to_2_5D(positive_sample["K"], positive_sample["joints3D"])
@@ -690,7 +690,7 @@ class Data_Set(Dataset):
             **{f"{k}_2": v for k, v in param2.items() if v is not None},
         }
     
-    def prepare_handclr_mask_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter, augmenter_default: DefaultSampleAugmenter) -> dict:
+    def prepare_simhand_mask_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter, augmenter_default: DefaultSampleAugmenter) -> dict:
         anchor_joints25D, _ = convert_to_2_5D(anchor_sample["K"], anchor_sample["joints3D"])
         positive_joints25D, _ = convert_to_2_5D(positive_sample["K"], positive_sample["joints3D"])
         
@@ -738,7 +738,7 @@ class Data_Set(Dataset):
             **{f"{k}_2": v for k, v in param2.items() if v is not None},
         }
 
-    def prepare_handclr_vis_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter, augmenter_default: DefaultSampleAugmenter) -> dict:
+    def prepare_simhand_vis_sample(self, anchor_sample: dict, positive_sample: dict, augmenter: SampleAugmenter, augmenter_default: DefaultSampleAugmenter) -> dict:
         anchor_joints25D, _ = convert_to_2_5D(anchor_sample["K"], anchor_sample["joints3D"])
         positive_joints25D, _ = convert_to_2_5D(positive_sample["K"], positive_sample["joints3D"])
         

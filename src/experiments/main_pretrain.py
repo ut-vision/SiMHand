@@ -11,8 +11,8 @@ from src.constants import (
     COMET_KWARGS,
     SIMCLR_CONFIG,
     PECLR_CONFIG,
-    HANDCLR_CONFIG,
-    HANDCLR_MV_CONFIG,
+    SIMHAND_CONFIG,
+    SIMHAND_MV_CONFIG,
     BASE_DIR,
     TRAINING_CONFIG_PATH,
 )
@@ -74,8 +74,8 @@ def main():
         model_param_path =  SIMCLR_CONFIG
     elif 'peclr' in args.experiment_type:
         model_param_path =  PECLR_CONFIG
-    elif 'handclr' in args.experiment_type:
-        model_param_path =  HANDCLR_CONFIG
+    elif 'simhand' in args.experiment_type:
+        model_param_path =  SIMHAND_CONFIG
     else:
         raise ValueError(f"Model {args.experiment_type} is not supported.")
     

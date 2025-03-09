@@ -181,8 +181,7 @@ def plot_peclr_images(img1, img2, params, comet_logger):
 
     plt.close()
 
-# ---------------- Modify 63: Add plot handclr images --------------------- #
-def plot_handclr_images(img1, img2, params, comet_logger):
+def plot_simhand_images(img1, img2, params, comet_logger):
 
     fig = plt.figure(figsize=(10, 10))
     ax = fig.add_subplot(121)
@@ -198,7 +197,6 @@ def plot_handclr_images(img1, img2, params, comet_logger):
         comet_logger.log_figure(figure=plt)
 
     plt.close()
-# ---------------- Modify 63: Add plot handclr images --------------------- #
 
 def unormalize_images(plot_params: dict) -> dict:
     mean, std = (

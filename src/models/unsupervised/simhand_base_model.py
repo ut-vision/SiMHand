@@ -12,10 +12,10 @@ from src.models.utils import (
 from torch import Tensor
 from torch.nn import functional as F
 
-class HandCLR_BASE(SimCLR):
+class SiMHand_BASE(SimCLR):
     """
     Implementation Data: 2024.01.19
-    HandCLR implementation inspired from method: SimCLR & PeCLR
+    SiMHand implementation inspired from method: SimCLR & PeCLR
     SimCLR paper: https://arxiv.org/pdf/2002.05709.pdf.
     PeCLR paper: https://arxiv.org/abs/2106.05953.
     """

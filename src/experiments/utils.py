@@ -16,10 +16,10 @@ from src.models.unsupervised.simclr_model import SimCLR
 from src.models.unsupervised.peclr_w_model import PeCLR_W
 from src.models.unsupervised.simclr_w_model import SimCLR_W
 
-from src.models.unsupervised.handclr_base_model import HandCLR_BASE
-from src.models.unsupervised.handclr_v0_model import HandCLR
-from src.models.unsupervised.handclr_w_model import HandCLR_W
-from src.models.unsupervised.handclr_vis_model import HandCLR_VIS
+from src.models.unsupervised.simhand_base_model import SiMHand_BASE
+from src.models.unsupervised.simhand_v0_model import SiMHand
+from src.models.unsupervised.simhand_w_model import SiMHand_W
+from src.models.unsupervised.simhand_vis_model import SiMHand_VIS
 
 from src.models.utils import get_latest_checkpoint
 from src.models.callbacks.model_checkpoint import UpdatedModelCheckpoint
@@ -46,23 +46,23 @@ def get_general_args(
     parser.add_argument(
         "--weight_type", type=str, help="Weight type (linear / non_linear)"
     )
-    # SimCLR_w, PeCLR_w, HandCLR_w
+    # SimCLR_w, PeCLR_w, SiMHand_w
     parser.add_argument(
         "--joints_type", type=str, help="joints type (original / augmented)"
     )
-    # SimCLR_w, PeCLR_w, HandCLR_w
+    # SimCLR_w, PeCLR_w, SiMHand_w
     parser.add_argument(
         "--diff_type", type=str, help="joints_differ (w_o_abs / w_abs / mpjpe)"
     )
-    # SimCLR_w, PeCLR_w, HandCLR_w
+    # SimCLR_w, PeCLR_w, SiMHand_w
     parser.add_argument(
         "--pos_neg", type=str, help="pos_neg weighting(pos / neg / pos_neg)"
     )
-    # SimCLR_w, PeCLR_w, HandCLR_w
+    # SimCLR_w, PeCLR_w, SiMHand_w
     parser.add_argument(
         "--non_linear_lambda_pos", type=float, help="non_linear_parm (5.0 / 2.5 / 1.0)"
     )
-    # SimCLR_w, PeCLR_w, HandCLR_w
+    # SimCLR_w, PeCLR_w, SiMHand_w
     parser.add_argument(
         "--non_linear_lambda_neg", type=float, help="non_linear_parm (0.05 / 0.01 / 0.005)"
     )
@@ -644,26 +644,26 @@ def get_model(experiment_type: str, heatmap_flag: bool, denoiser_flag: bool):
             print(f"The 'PeCLR' model is being built......")
             return PeCLR
     
-    elif experiment_type == "handclr-base":
+    elif experiment_type == "simhand-base":
         if heatmap_flag:
             raise "Not implemented error"
         else:
-            print(f"The 'HandCLR-Base' model is being built......")
-            return HandCLR_BASE
+            print(f"The 'SiMHand-Base' model is being built......")
+            return SiMHand_BASE
     
-    elif experiment_type == "handclr":
+    elif experiment_type == "simhand":
         if heatmap_flag:
             raise "Not implemented error"
         else:
-            print(f"The 'HandCLR' model is being built......")
-            return HandCLR
+            print(f"The 'SiMHand' model is being built......")
+            return SiMHand
 
-    elif experiment_type == "handclr_w":
+    elif experiment_type == "simhand_w":
         if heatmap_flag:
             raise "Not implemented error"
         else:
-            print(f"The 'HandCLR-V1' model is being built......")
-            return HandCLR_W
+            print(f"The 'SiMHand-V1' model is being built......")
+            return SiMHand_W
         
     elif experiment_type == "simclr_w":
         if heatmap_flag:
@@ -679,14 +679,14 @@ def get_model(experiment_type: str, heatmap_flag: bool, denoiser_flag: bool):
             print(f"The 'PeCLR (with weighting)' model is being built......")
             return PeCLR_W
 
-    # Update HandCLR-VIS mode for visualization
-    elif experiment_type == "handclr_vis":
+    # Update SiMHand-VIS mode for visualization
+    elif experiment_type == "simhand_vis":
         if heatmap_flag:
             raise "Not implemented error"
         else:
             print(f"VISUALIZATION MODE START")
-            print(f"The 'HandCLR-VIS' model is being built......")
-            return HandCLR_VIS
+            print(f"The 'SiMHand-VIS' model is being built......")
+            return SiMHand_VIS
 
     elif experiment_type == "semisupervised":
         raise "Not implemented error"
