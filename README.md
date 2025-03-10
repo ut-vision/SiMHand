@@ -20,7 +20,7 @@ TBD
 
 ## Run Experiments
 ### Prepare pre-training data
-We are looking for a suitable way to publish the pre-training data set. Thank you! (Cooming soon)
+For the pre-training of SiMHand, we use 2.0M in-the-wild similar hands from [Ego4D-v1](https://ego4d-data.org/) and [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html), please follow the instruction [here](./Hand100M) to prepare the your pre-training datasets!
 
 ### Define the environment variables
 ```bash
@@ -34,7 +34,7 @@ export SAVED_MODELS_BASE_PATH="$BASE_PATH/data/models/simhand"
 export SAVED_META_INFO_PATH="$BASE_PATH/data/models" 
 ```
 ### SiMHand Pre-training
-For pre-training of SiMHand , please run through the code below. We did not search for random augmentation strategies for SiMHand, and we inherited the description of PeCLR and SimCLR from the original PeCLR paper.
+For pre-training of [SiMHand](https://github.com/ut-vision/SiMHand) , please run through the code below. We did not search for random augmentation strategies for SiMHand, and we inherited the description of PeCLR and SimCLR from the original PeCLR paper.
 ```bash
 python src/experiments/main.py \
 --experiment_type handclr_w \
