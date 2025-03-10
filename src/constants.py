@@ -6,7 +6,7 @@ DATA_PATH = os.environ.get("DATA_PATH")
 
 FREIHAND_DATA = os.path.join(DATA_PATH, "FreiHAND/FreiHAND_pub_v2")
 YOUTUBE_DATA = os.path.join(DATA_PATH, "YT3D", "data")
-HAND100M_DATA = os.path.join(DATA_PATH, "Hand100M")
+HAND2M_DATA = os.path.join(DATA_PATH, "Hand2M")
 
 # config paths
 CONFIG_PATH = os.path.join(BASE_DIR, "src", "experiments", "config")

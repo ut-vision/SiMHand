@@ -1,9 +1,9 @@
 # SiMHand
 This is the official implementation of our ICLR 2025 paper "[SiMHand: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training](https://openreview.net/forum?id=96jZFqM5E0)". Hope to share our work in Singapore 🇸🇬 ～!!
 
-![labram](simhand.png)
+![simhand](simhand.png)
 ## Abstract
-We present a framework for pre-training of 3D hand pose estimation from in-the-wild hand images sharing with similar hand characteristics, dubbed SiMHand. Pre-training with large-scale images achieves promising results in various tasks, but prior methods for 3D hand pose pre-training have not fully utilized the potential of diverse hand images accessible from in-the-wild videos. To facilitate scalable pre-training, we first prepare an extensive pool of hand images from in-the-wild videos and design our pre-training method with contrastive learning. Specifically, we collect over 2.0M hand images from recent human-centric videos, such as 100DOH and Ego4D. To extract discriminative information from these images, we focus on the similarity of hands: pairs of non-identical samples with similar hand poses. We then propose a novel contrastive learning method that embeds similar hand pairs closer in the feature space. Our method not only learns from similar samples but also adaptively weights the contrastive learning loss based on inter-sample distance, leading to additional performance gains. Our experiments demonstrate that our method outperforms conventional contrastive learning approaches that produce positive pairs sorely from a single image with data augmentation. We achieve significant improvements over the state-of-the-art method (PeCLR) in various datasets, with gains of 15% on FreiHand, 10% on DexYCB, and 4% on AssemblyHands.
+We present a framework for pre-training of 3D hand pose estimation from in-the-wild hand images sharing with similar hand characteristics, dubbed [SiMHand](https://github.com/ut-vision/SiMHand). Pre-training with large-scale images achieves promising results in various tasks, but prior methods for 3D hand pose pre-training have not fully utilized the potential of diverse hand images accessible from in-the-wild videos. To facilitate scalable pre-training, we first prepare an extensive pool of hand images from in-the-wild videos and design our pre-training method with contrastive learning. Specifically, we collect over 2.0M hand images from recent human-centric videos, such as [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/) and [Ego4D](https://ego4d-data.org/). To extract discriminative information from these images, we focus on the similarity of hands: pairs of non-identical samples with similar hand poses. We then propose a novel contrastive learning method that embeds similar hand pairs closer in the feature space. Our method not only learns from similar samples but also adaptively weights the contrastive learning loss based on inter-sample distance, leading to additional performance gains. Our experiments demonstrate that our method outperforms conventional contrastive learning approaches that produce positive pairs sorely from a single image with data augmentation. We achieve significant improvements over the state-of-the-art method ([PeCLR](https://arxiv.org/pdf/2106.05953)) in various datasets, with gains of 15% on FreiHand, 10% on DexYCB, and 4% on AssemblyHands.
 
 ## Environment Set Up
 Install required packages:
@@ -14,6 +14,9 @@ conda env create -f environment.yml
 conda activate simhand
 ## python -c "import torch; print(torch.__version__)" # Make sure it work!
 ```
+
+## Take Away
+TBD
 
 ## Run Experiments
 ### Prepare pre-training data
@@ -26,7 +29,7 @@ export COMET_API_KEY=''
 export COMET_PROJECT=''
 export COMET_WORKSPACE=''
 export PYTHONPATH="$BASE_PATH"
-export DATA_PATH="$BASE_PATH/data/raw/"
+export DATA_PATH="<path_to_hand2m>"
 export SAVED_MODELS_BASE_PATH="$BASE_PATH/data/models/simhand"
 export SAVED_META_INFO_PATH="$BASE_PATH/data/models" 
 ```
@@ -50,14 +53,14 @@ python src/experiments/main.py \
 -save_top_k 100 \
 -save_period 1 \
 -num_workers 24 \
---weight_type linear \  #  parameter-free adaptive weighting strategy
+--weight_type linear \  #  Parameter-free Adaptive Weighting Strategy
 --joints_type augmented \
---diff_type mpjpe \     # distance caculation
---pos_neg pos_neg \     # add weight in pos or neg of Contrastive loss
+--diff_type mpjpe \     # Distance caculation
+--pos_neg pos_neg \     # Add Weight in Pos or Neg of Contrastive Loss
 ```
 
 We also prepare the [PeCLR](https://arxiv.org/pdf/2106.05953) and [SimCLR](https://arxiv.org/pdf/2002.05709) pre-training with adaptive weighting strategy: \
-For PeCLR with our adaptive weighting strategy
+For PeCLR with our adaptive weighting strategy, please run:
 ```bash
 python src/experiments/main.py \
 --experiment_type peclr_w \
@@ -76,13 +79,13 @@ python src/experiments/main.py \
 -save_top_k 100 \
 -save_period 1 \
 -num_workers 24 \
---weight_type linear \  #  parameter-free adaptive weighting strategy
+--weight_type linear \  #  Parameter-free Adaptive Weighting Strategy
 --joints_type augmented \
---diff_type mpjpe \     # distance caculation
---pos_neg pos_neg \     # add weight in pos or neg of Contrastive loss
+--diff_type mpjpe \     # Distance caculation
+--pos_neg pos_neg \     # Add Weight in Pos or Neg of Contrastive Loss
 ```
 
-For SimCLR with our adaptive weighting strategy
+For SimCLR with our adaptive weighting strategy, please run:
 ```bash
 python src/experiments/main_pretrain.py \
 --experiment_type simclr_w \
@@ -104,6 +107,9 @@ python src/experiments/main_pretrain.py \
 --diff_type mpjpe \     # distance caculation
 --pos_neg pos_neg     # add weight in pos or neg of Contrastive loss
 ```
+
+### SiMHand Fine-tuning:
+We provide the baseline model used to validate the effects of our pre-training: [minimal-hand](https://arxiv.org/pdf/2003.09572), thanks to the original author @[CalciferZh](https://github.com/CalciferZh), and @[MengHao666](https://github.com/MengHao666) for [minimal-hand](https://github.com/MengHao666/Minimal-Hand-pytorch) replication via pytorch. Since the @[MengHao666](https://github.com/MengHao666) implementation does not support several brand new datasets: FreiHands, DexYCB, Assemblyhands, please proceed directly with the newest model of minimal-hand we provide. You can find the fine-tuning model in [here](https://github.com/ut-vision/SiMHand/tree/main/minimal-hand).
 
 ## Citation
 If you find our paper/code useful, please consider citing our paper:

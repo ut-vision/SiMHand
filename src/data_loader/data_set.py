@@ -2,7 +2,7 @@ import torch
 import torchvision
 from easydict import EasyDict as edict
 
-from src.constants import FREIHAND_DATA, YOUTUBE_DATA, HAND100M_DATA
+from src.constants import FREIHAND_DATA, YOUTUBE_DATA, HAND2M_DATA
 from src.data_loader.sample_augmenter import SampleAugmenter
 from src.data_loader.sample_augmenter_default import DefaultSampleAugmenter
 from src.data_loader.utils import convert_2_5D_to_3D, convert_to_2_5D, JOINTS
@@ -87,11 +87,11 @@ class Data_Set(Dataset):
 
         elif self.source == "ego4d": # Ego View
             # The new dataset for pre-training: Ego4D
-            self.db = EGO4D_DB(root_dir=HAND100M_DATA, split=self._split, datasets_scale = self.datasets_scale)
+            self.db = EGO4D_DB(root_dir=HAND2M_DATA, split=self._split, datasets_scale = self.datasets_scale)
 
         elif self.source == "100doh": # Exo View
             # The new dataset for pre-training: Ego4D
-            self.db = DOH_DB(root_dir=HAND100M_DATA, split=self._split, datasets_scale = self.datasets_scale)
+            self.db = DOH_DB(root_dir=HAND2M_DATA, split=self._split, datasets_scale = self.datasets_scale)
         
     def __getitem__(self, idx: int):
 
