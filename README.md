@@ -29,7 +29,7 @@ export COMET_API_KEY=''
 export COMET_PROJECT=''
 export COMET_WORKSPACE=''
 export PYTHONPATH="$BASE_PATH"
-export DATA_PATH="<path_to_hand2m>"
+export DATA_PATH="<path_to_hand100m>"
 export SAVED_MODELS_BASE_PATH="$BASE_PATH/data/models/simhand"
 export SAVED_META_INFO_PATH="$BASE_PATH/data/models" 
 ```
