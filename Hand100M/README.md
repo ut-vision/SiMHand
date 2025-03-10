@@ -5,7 +5,8 @@ Hand100M is a on-going project by [Nie Lin](https://lin-nie.github.io/). Now we 
 ## Ego4D Data Download
 ![ego4d](ego-4d-01.png)
 
-Some of the data in our [SiMHand](https://github.com/ut-vision/SiMHand) project is based on [Ego4D-v1](https://ego4d-data.org/)'s video dataset implementation, but by license constraints, we are unable to disseminate the data twice. Please download the Ego4D dataset in [here](https://ego4d-data.org/). Thank you for the Meta Research's great job! After dwonload, you can get:
+Some of the data in our [SiMHand](https://github.com/ut-vision/SiMHand) project is based on [Ego4D-v1](https://ego4d-data.org/)'s video dataset implementation, but by license constraints, we are unable to disseminate the data twice. Please download the Ego4D dataset in [here](https://ego4d-data.org/). Thank you for the Meta Research's great job!
+After dwonload, you can get:
 ```bash
 ego4d/v1/
 ├── annotations
@@ -131,7 +132,7 @@ If you find our paper/code useful, please consider citing our paper:
 }
 ```
 
-And if you also use the dataset of Ego4D and 100DOH, please cite the paper:
+And if you also use the dataset of [Ego4D](https://ego4d-data.org/) and [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html), please cite the paper:
 ```
 # Ego4D dataset
 @inproceedings{grauman:cvpr22,
