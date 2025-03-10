@@ -4,7 +4,7 @@ import subprocess
 from tqdm import tqdm
 
 #########################################################################
-input_dir = "PATH/TO/INPUT/DIRECTORY/V1/FULL_SCALE"
+input_dir = "PATH/TO/INPUT/DIRECTORY/EGO4D/V1/FULL_SCALE"
 output_dir = "PATH/TO/OUTPUT/DIRECTORY"
 video_list_path = "./Hand100M/ego4d_name_list.txt"
 #########################################################################
@@ -48,8 +48,8 @@ for line in tqdm(video_lines, desc="Processing videos", unit="video"):
     
     video_path = os.path.join(input_dir, video_name)
     video_id = video_name.replace(".mp4", "")
-    output_dir = os.path.join(output_dir, video_id)
-    os.makedirs(output_dir, exist_ok=True)
+    video_output_dir = os.path.join(output_dir, video_id)
+    os.makedirs(video_output_dir, exist_ok=True)
 
     # Extract frames from the video
     cap = cv2.VideoCapture(video_path)
@@ -67,7 +67,7 @@ for line in tqdm(video_lines, desc="Processing videos", unit="video"):
         
         if frame_idx % 30 == 0:  # Every 30 frames save one
             frame_filename = f"frame_{saved_frame_idx:06d}.jpg"
-            frame_path = os.path.join(output_dir, frame_filename)
+            frame_path = os.path.join(video_output_dir, frame_filename)
             cv2.imwrite(frame_path, frame)
             saved_frame_idx += 30
         

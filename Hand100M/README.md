@@ -3,7 +3,7 @@ Hand100M is a on-going project by [Nie Lin](https://lin-nie.github.io/). Now we 
 
 
 ## Ego4D Data Download
-![simhand](ego-4d-01.png)
+![ego4d](ego-4d-01.png)
 Some of the data in our [SiMHand](https://github.com/ut-vision/SiMHand) project is based on [Ego4D-v1](https://ego4d-data.org/)'s video dataset implementation, but by license constraints, we are unable to disseminate the data twice. Please download the Ego4D dataset in [here](https://ego4d-data.org/). Thank you for the Meta Research's great job! After dwonload, you can get:
 ```bash
 ego4d/v1/
@@ -40,6 +40,7 @@ Please download our pre-training data annotations of [Ego4D-v1](https://ego4d-da
 
 
 ## 100DOH Data Download
+![100doh](100doh.jpg)
 Some of the data in our [SiMHand](https://github.com/ut-vision/SiMHand) project is based on [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html)'s video dataset implementation, but still by the license constraints, we are unable to disseminate the data twice. Please download the 100DOH dataset in [here](https://ego4d-data.org/). Thank you for [Dandan Shan](https://ddshan.github.io/)'s great job! After dwonload, you can get:
 ```bash
 100DOH/
@@ -73,8 +74,12 @@ sudo apt-get install ffmpeg
 
 Running the script:
 ```bash
-python ego4d_process.py
+python 100doh_process.py
 ```
+
+### Note for 100DOH Dataset
+Since the [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html) videos are all sourced from YouTube, this means there is a risk of them becoming unavailable over time. If any videos are found to be inaccessible, please send me the names of the invalid videos via a text file at: [nielin@iis.u-tokyo.ac.jp](nielin@iis.u-tokyo.ac.jp). Thank you!
+
 
 ## Annotations
 Please download our pre-training data annotations of [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html) at [here](https://drive.google.com/drive/folders/1dUHM-YzIgc_FQau8rqOsl3xPC90HYIdj?usp=sharing).
@@ -82,8 +87,32 @@ Please download our pre-training data annotations of [100DOH](https://fouheylab.
 ## Visualization
 We provide visualization code to allow you to verify whether your processed data aligns correctly with our label files. Please run the following：
 ```bash
-python visualization.py
+export BASE_PATH='<path_to_repo>'
+export COMET_API_KEY=''
+export COMET_PROJECT=''
+export COMET_WORKSPACE=''
+export PYTHONPATH="$BASE_PATH"
+export DATA_PATH="<path_to_hand100m>"
+export SAVED_MODELS_BASE_PATH="$BASE_PATH/data/models/simhand"
+export SAVED_META_INFO_PATH="$BASE_PATH/data/models" 
 ```
+
+And than, please run:
+```bash
+python similar_hand_vis.py  # Please review the file before runing!
+```
+
+After that, you can see:
+```bash
+Ego4D 50k JSON file loaded successfully.
+A total of 49930 images were read.
+A total of 50000 data items were read.
+```
+
+If you can get the similar hand 10 * 10 grid like here:
+![grid](./visualization/vis_10x10_grid.jpg)
+
+Congratulation! You already finish the [SiMHand](https://github.com/ut-vision/SiMHand) pre-training data process!
 
 ## Citation
 If you find our paper/code useful, please consider citing our paper:
