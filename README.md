@@ -23,7 +23,7 @@ TBD
 
 ## Run Experiments
 ### Prepare pre-training data
-For the pre-training of SiMHand, we use 2.0M in-the-wild similar hands from [Ego4D-v1](https://ego4d-data.org/) and [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html), please follow the instruction [here](./Hand100M) to prepare the your pre-training datasets!
+For the pre-training of [SiMHand](https://github.com/ut-vision/SiMHand), we use 2.0M in-the-wild similar hands from [Ego4D-v1](https://ego4d-data.org/) and [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html), please follow the instruction [here](./Hand100M) to prepare the your pre-training datasets!
 
 ### Define the environment variables
 ```bash
@@ -113,6 +113,9 @@ python src/experiments/main_pretrain.py \
 
 ### SiMHand Fine-tuning:
 We provide the baseline model used to validate the effects of our pre-training: [minimal-hand](https://arxiv.org/pdf/2003.09572), thanks to the original author @[CalciferZh](https://github.com/CalciferZh), and @[MengHao666](https://github.com/MengHao666) for [minimal-hand](https://github.com/MengHao666/Minimal-Hand-pytorch) replication via pytorch. Since the @[MengHao666](https://github.com/MengHao666) implementation does not support several brand new datasets: FreiHands, DexYCB, Assemblyhands, please proceed directly with the newest model of minimal-hand we provide. You can find the fine-tuning model in [here](https://github.com/ut-vision/SiMHand/tree/main/minimal-hand).
+
+## Acknowledgement
+In this [SiMHand](https://github.com/ut-vision/SiMHand) project, I am grateful to all my collaborators, especially to [Take Ohkawa](https://tkhkaeio.github.io/) for his high standards and to [Yoichi Sato](https://sites.google.com/ut-vision.org/ysato/) for his patient guidance. I also would also like to thank [The University of Tokyo Scholarship](https://www.u-tokyo.ac.jp/en/prospective-students/fellowship.html) and [JST ACT-X](https://www.jst.go.jp/kisoken/act-x/) for supporting my research. Thank you!
 
 ## Citation
 If you find our paper/code useful, please consider citing our paper:
