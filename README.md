@@ -1,4 +1,7 @@
 # SiMHand
+---
+[![arXiv](https://img.shields.io/badge/arXiv-2502.15251-DodgerBlue.svg?style=plastic)](https://arxiv.org/pdf/2403.04381.pdf) ![Python 3.10](https://img.shields.io/badge/python-3.10-DodgerBlue.svg?style=plastic) ![Pytorch 1.13.0](https://img.shields.io/badge/pytorch-1.13.0-DodgerBlue.svg?style=plastic) ![CUDA 11.7](https://img.shields.io/badge/cuda-11.7-DodgerBlue.svg?style=plastic) ![License CC BY-NC](https://img.shields.io/badge/license-CC_BY--NC-DodgerBlue.svg?style=plastic)
+
 This is the official implementation of our ICLR 2025 paper "[SiMHand: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training](https://openreview.net/forum?id=96jZFqM5E0)". Hope to share our work in Singapore 🇸🇬, April, 2025～!!
 
 [Nie Lin*](https://lin-nie.github.io/), [Takehiko Ohkawa*](https://tkhkaeio.github.io/), [Yifei Huang](https://hyf015.github.io/), [Mingfang Zhang](https://mf-zhang.github.io/), [Minjie Cai](https://cai-mj.github.io/), [Ming Li](), [Ryosuke Furuta](https://rfuruta.github.io/), [Yoichi Sato](https://sites.google.com/ut-vision.org/ysato/)
