@@ -58,7 +58,7 @@ class DOH_DB(Dataset):
                     - `id` - Annotation ID (an image can contain multiple hands).
         """
         
-        data_json_path = os.path.join(self.root_dir, f"annotations/100DOH/Hand2M_100DOH_{self.datasets_scale}_v1-1.json")
+        data_json_path = os.path.join(self.root_dir, f"annotations/100DOH/Hand100M_100DOH_{self.datasets_scale}_v1-1.json")
         data_json = read_json(data_json_path)
         print(f"\n100DOH {self.datasets_scale} JSON file loaded successfully.")
     
@@ -72,7 +72,7 @@ class DOH_DB(Dataset):
     def get_initialize_id_to_index(self) -> dict:
         """Returns the dictionary conatinign the (key: hand_id, value: db_idx)
         """
-        data_json_path = os.path.join(self.root_dir, f"annotations/100DOH/Hand2M_100DOH_{self.datasets_scale}_v1-1.json")
+        data_json_path = os.path.join(self.root_dir, f"annotations/100DOH/Hand100M_100DOH_{self.datasets_scale}_v1-1.json")
         data_json = read_json(data_json_path)
   
         annotations_dict = data_json["annotations"]

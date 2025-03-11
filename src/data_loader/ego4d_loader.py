@@ -59,7 +59,7 @@ class EGO4D_DB(Dataset):
                     - `id` - Annotation ID (an image can contain multiple hands).
         """
         
-        data_json_path = os.path.join(self.root_dir, f"annotations/Ego4D/Hand2M_Ego4D_{self.datasets_scale}_v1-1.json")
+        data_json_path = os.path.join(self.root_dir, f"annotations/Ego4D/Hand100M_Ego4D_{self.datasets_scale}_v1-1.json")
         
         data_json = read_json(data_json_path)
         print(f"\nEgo4D {self.datasets_scale} JSON file loaded successfully.")
@@ -74,7 +74,7 @@ class EGO4D_DB(Dataset):
     def get_initialize_id_to_index(self) -> dict:
         """Returns the dictionary conatinign the (key: hand_id, value: db_idx)
         """
-        data_json_path = os.path.join(self.root_dir, f"annotations/Ego4D/Hand2M_Ego4D_{self.datasets_scale}_v1-1.json")
+        data_json_path = os.path.join(self.root_dir, f"annotations/Ego4D/Hand100M_Ego4D_{self.datasets_scale}_v1-1.json")
         data_json = read_json(data_json_path)
   
         annotations_dict = data_json["annotations"]

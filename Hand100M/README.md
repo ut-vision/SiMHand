@@ -40,6 +40,7 @@ python ego4d_process.py
 ## Annotations
 Please download our pre-training data annotations of [Ego4D-v1](https://ego4d-data.org/) at [here](https://drive.google.com/drive/folders/1OC1X5iJsc8oMOOLw-UOZSzaNHzqP4LFg?usp=sharing).
 
+**Note**: The [annotation](https://drive.google.com/drive/folders/1OC1X5iJsc8oMOOLw-UOZSzaNHzqP4LFg?usp=sharing) includes the file path for loading hand data. If modifications are needed, please either edit the corresponding JSON file or update the relevant JSON loading lines in the [62 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L62), [77 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L77), [108 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L108) of [Ego4D dataloaders](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py).
 
 ## 100DOH Data Download
 ![100doh](100doh.jpg)
@@ -80,12 +81,13 @@ Running the script:
 python 100doh_process.py
 ```
 
-### Note for 100DOH Dataset
-Since the [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html) videos are all sourced from YouTube, this means there is a risk of them becoming unavailable over time. If any videos are found to be inaccessible, please send me the names of the invalid videos via a text file at: [nielin@iis.u-tokyo.ac.jp](nielin@iis.u-tokyo.ac.jp). Thank you!
+**Note**: Since the [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html) videos are all sourced from YouTube, this means there is a risk of them becoming unavailable over time. If any videos are found to be inaccessible, please send me the names of the invalid videos via a text file at: [nielin@iis.u-tokyo.ac.jp](nielin@iis.u-tokyo.ac.jp). Thank you!
 
 
 ## Annotations
 Please download our pre-training data annotations of [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/index.html) at [here](https://drive.google.com/drive/folders/1dUHM-YzIgc_FQau8rqOsl3xPC90HYIdj?usp=sharing).
+
+**Note**: The [annotation](https://drive.google.com/drive/folders/1dUHM-YzIgc_FQau8rqOsl3xPC90HYIdj?usp=sharing) includes the file path for loading hand data. If modifications are needed, please either edit the corresponding JSON file or update the relevant JSON loading lines in the [61 line]((https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/doh_loader.py#L61)), [75 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/doh_loader.py#L75), [106 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/doh_loader.py#L106) of [100DOH dataloaders](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/doh_loader.py).
 
 ## Visualization
 We provide visualization code to allow you to verify whether your processed data aligns correctly with our label files. Please run the following：
