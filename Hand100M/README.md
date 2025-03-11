@@ -119,6 +119,16 @@ If you can get the similar hand 10 * 10 grid like here:
 
 Congratulation! You already finish the [SiMHand](https://github.com/ut-vision/SiMHand) pre-training data process!
 
+## Top-K Experiment
+We also provide the annotations of our "Top-K" experiment of [Ego4D-v1](https://ego4d-data.org/). Please down load the Top-K annotations in [here](https://drive.google.com/drive/folders/1ZtI9gZkINMQSqEACX8m4ARyKgKKEZzO-?usp=sharing).
+
+**Note**: The [annotation](https://drive.google.com/drive/folders/1OC1X5iJsc8oMOOLw-UOZSzaNHzqP4LFg?usp=sharing) includes the file path for loading hand data. If modifications are needed, please either edit the corresponding JSON file or update the relevant JSON loading lines in the [62 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L62), [77 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L77), [108 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L108) of [Ego4D dataloaders](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py).
+
+## TempCLR Annotations
+During ICLR 2025 rebuttal phase, we were asked by the reviewer to compare with TempCLR. So we also provide the [TempCLR](https://eth-ait.github.io/tempclr/) training annotations in [here](https://drive.google.com/drive/folders/1tjhRmqf72Vi8_xosfGlTzJLlk0BPw1R3?usp=sharing). Please note that we only provide **50K**, **100K**, **500K** annotations.
+
+**Note**: The [annotation](https://drive.google.com/drive/folders/1OC1X5iJsc8oMOOLw-UOZSzaNHzqP4LFg?usp=sharing) includes the file path for loading hand data. If modifications are needed, please either edit the corresponding JSON file or update the relevant JSON loading lines in the [62 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L62), [77 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L77), [108 line](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py#L108) of [Ego4D dataloaders](https://github.com/ut-vision/SiMHand/blob/main/src/data_loader/ego4d_loader.py).
+
 ## Citation
 If you find our paper/code useful, please consider citing our paper:
 
