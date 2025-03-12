@@ -1,5 +1,5 @@
 # Hand100M-SiMHand
-Hand100M is a on-going project by [Nie Lin](https://lin-nie.github.io/). Now we support 2.0M similar hand label of [SiMHand](https://github.com/ut-vision/SiMHand) project to all public community. Thank you!
+Hand100M is a on-going project by [Nie Lin](https://lin-nie.github.io/) and [Takehiko Ohkawa*](https://tkhkaeio.github.io/). Now we support 2.0M similar hand label of [SiMHand](https://github.com/ut-vision/SiMHand) project to all public community. Thank you!
 
 
 ## Ego4D Data Download
