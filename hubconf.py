@@ -3,13 +3,13 @@ from torchvision.models.resnet import ResNet, Bottleneck
 
 dependencies = ['torch', 'torchvision']  # 声明依赖项
 
-def resnet50_simhand(pretrained=False, version='v1.0', ​**kwargs):
+def resnet50_simhand(pretrained=False, version='v1.0', **kwargs):
     """ 
     加载使用手部数据预训练的ResNet50模型
     Args:
         pretrained (bool): 是否加载预训练权重
     """
-    model = ResNet(Bottleneck, [3, 4, 6, 3], ​**kwargs)
+    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     
     if pretrained:
         # 从GitHub Releases加载权重
