@@ -13,7 +13,7 @@ def resnet50_simhand(pretrained=False, version='v1.0', **kwargs):
     
     if pretrained:
         # 从GitHub Releases加载权重
-        checkpoint_url = f"https://github.com/ut-vision/SiMHand/releases/download/{version}/resnet50_simhand.pth"
+        checkpoint_url = f"https://github.com/ut-vision/SiMHand/tree/main/releases/download/{version}/resnet50_simhand.pth"
         state_dict = torch.hub.load_state_dict_from_url(
             checkpoint_url,
             map_location=torch.device('cpu'),
