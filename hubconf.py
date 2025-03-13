@@ -1,5 +1,5 @@
 import torch
-from torchvision.models.resnet import ResNet, Bottleneck
+from torchvision.models import resnet50
 
 dependencies = ['torch', 'torchvision']  # 声明依赖项
 
@@ -9,7 +9,7 @@ def resnet50_simhand(pretrained=False, version='v1.0', **kwargs):
     Args:
         pretrained (bool): 是否加载预训练权重
     """
-    model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    model = resnet50(pretrained=False)
     
     if pretrained:
         # 从GitHub Releases加载权重
