@@ -12,9 +12,9 @@ This is the official implementation of our ICLR 2025 paper "[SiMHand: Mining Sim
 ![simhand](simhand.png)
 
 ## News
-[Mar 13th, 2025]: Pre-training weights release. [[Download]](https://github.com/ut-vision/SiMHand/releases/tag/v1.0)
-[Mar 9th, 2025]: Project page release. [[Project Page]](https://tkhkaeio.github.io/projects/25-simhand/index.html)
-[Jan 30th, 2025]: Code release. [[Code]](https://github.com/ut-vision/SiMHand)
+[Mar 13th, 2025]: Pre-training weights release. [[Download]](https://github.com/ut-vision/SiMHand/releases/tag/v1.0) \
+[Mar 9th, 2025]: Project page release. [[Project Page]](https://tkhkaeio.github.io/projects/25-simhand/index.html) \
+[Jan 30th, 2025]: Code release. [[Code]](https://github.com/ut-vision/SiMHand) \
 [Jan 23th, 2025]: Open repository.
 
 
