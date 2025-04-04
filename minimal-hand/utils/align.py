@@ -5,7 +5,9 @@ def global_align(gtj0, prj0, key):
     gtj = gtj0.copy()
     prj = prj0.copy()
 
+    # -------------------------- Modify 22: Add FH datasets --------------------------- #
     if key in ["stb", "rhd", "ah-ego", "ah-exo", "fh", "dy"]:
+    # -------------------------- Modify 22: Add FH datasets --------------------------- #
         # gtj :B*21*3
         # prj :B*21*3
         root_idx = 0  # root

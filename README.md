@@ -4,10 +4,20 @@
 
 This is the official implementation of our ICLR 2025 paper "[SiMHand: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training](https://openreview.net/forum?id=96jZFqM5E0)". Hope to share our work in Singapore 🇸🇬, April, 2025～!!
 
+[[Paper]](https://arxiv.org/abs/2502.15251) [[Openreview]](https://openreview.net/forum?id=96jZFqM5E0) [[Code]](https://github.com/ut-vision/SiMHand) [[Project Page]](https://tkhkaeio.github.io/projects/25-simhand/index.html)
+
 [Nie Lin*](https://lin-nie.github.io/), [Takehiko Ohkawa*](https://tkhkaeio.github.io/), [Yifei Huang](https://hyf015.github.io/), [Mingfang Zhang](https://mf-zhang.github.io/), [Minjie Cai](https://cai-mj.github.io/), [Ming Li](), [Ryosuke Furuta](https://rfuruta.github.io/), [Yoichi Sato](https://sites.google.com/ut-vision.org/ysato/)
 (*equal contribution). "[SiMHand: Mining Similar Hands for Large-Scale 3D Hand Pose Pre-training](https://openreview.net/forum?id=96jZFqM5E0)", [ICLR 2025](https://iclr.cc/).
 
 ![simhand](simhand.png)
+
+## News
+[Mar 13th, 2025]: Pre-training weights release. [[Download]](https://github.com/ut-vision/SiMHand/releases/tag/v1.0)
+[Mar 9th, 2025]: Project page release. [[Project Page]](https://tkhkaeio.github.io/projects/25-simhand/index.html)
+[Jan 30th, 2025]: Code release. [[Code]](https://github.com/ut-vision/SiMHand)
+[Jan 23th, 2025]: Open repository.
+
+
 ## Abstract
 We present a framework for pre-training of 3D hand pose estimation from in-the-wild hand images sharing with similar hand characteristics, dubbed [SiMHand](https://github.com/ut-vision/SiMHand). Pre-training with large-scale images achieves promising results in various tasks, but prior methods for 3D hand pose pre-training have not fully utilized the potential of diverse hand images accessible from in-the-wild videos. To facilitate scalable pre-training, we first prepare an extensive pool of hand images from in-the-wild videos and design our pre-training method with contrastive learning. Specifically, we collect over 2.0M hand images from recent human-centric videos, such as [100DOH](https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/) and [Ego4D](https://ego4d-data.org/). To extract discriminative information from these images, we focus on the similarity of hands: pairs of non-identical samples with similar hand poses. We then propose a novel contrastive learning method that embeds similar hand pairs closer in the feature space. Our method not only learns from similar samples but also adaptively weights the contrastive learning loss based on inter-sample distance, leading to additional performance gains. Our experiments demonstrate that our method outperforms conventional contrastive learning approaches that produce positive pairs sorely from a single image with data augmentation. We achieve significant improvements over the state-of-the-art method ([PeCLR](https://arxiv.org/pdf/2106.05953)) in various datasets, with gains of 15% on FreiHand, 10% on DexYCB, and 4% on AssemblyHands.
 
